@@ -19,7 +19,11 @@
         <section class="guideline-selector">
             <h2>選擇診斷標準 / Select Guideline</h2>
             <div class="guideline-buttons">
-                <button class="guideline-btn active" data-guideline="awgs2019">
+                <button class="guideline-btn active" data-guideline="awgs2025">
+                    AWGS 2025
+                    <span class="badge">最新</span>
+                </button>
+                <button class="guideline-btn" data-guideline="awgs2019">
                     AWGS 2019
                     <span class="badge">亞洲</span>
                 </button>
@@ -99,9 +103,22 @@
                 <h3>肌力標準 / Muscle Strength Criteria</h3>
                 <div class="criteria-comparison">
                     <div class="criteria-card">
+                        <h4>AWGS 2025 🆕</h4>
+                        <div class="criteria-item">
+                            <label>握力 (Handgrip Strength)</label>
+                            <p><strong>50-64歲:</strong></p>
+                            <p>男性 &lt;28 kg</p>
+                            <p>女性 &lt;18 kg</p>
+                            <p style="margin-top: 0.5rem;"><strong>≥65歲:</strong></p>
+                            <p>男性 &lt;28 kg</p>
+                            <p>女性 &lt;18 kg</p>
+                        </div>
+                    </div>
+                    <div class="criteria-card">
                         <h4>AWGS 2019</h4>
                         <div class="criteria-item">
                             <label>握力 (Handgrip Strength)</label>
+                            <p>≥60歲成人</p>
                             <p>男性 &lt;28 kg</p>
                             <p>女性 &lt;18 kg</p>
                         </div>
@@ -110,6 +127,7 @@
                         <h4>EWGSOP2</h4>
                         <div class="criteria-item">
                             <label>握力 (Handgrip Strength)</label>
+                            <p>老年人</p>
                             <p>男性 &lt;27 kg</p>
                             <p>女性 &lt;16 kg</p>
                         </div>
@@ -119,6 +137,57 @@
 
             <div class="tab-content" id="muscle-mass">
                 <h3>肌肉量標準 / Muscle Mass Criteria</h3>
+
+                <h4 style="color: var(--secondary-color); margin-top: 1rem;">AWGS 2025 🆕</h4>
+                <div class="table-responsive">
+                    <table class="criteria-table">
+                        <thead>
+                            <tr>
+                                <th>測量方法</th>
+                                <th>年齡</th>
+                                <th>男性切點</th>
+                                <th>女性切點</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="2"><strong>DXA (ASM/Height²)</strong></td>
+                                <td>50-64歲</td>
+                                <td>&lt;7.0 kg/m²</td>
+                                <td>&lt;5.4 kg/m²</td>
+                            </tr>
+                            <tr>
+                                <td>≥65歲</td>
+                                <td>&lt;7.0 kg/m²</td>
+                                <td>&lt;5.4 kg/m²</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2"><strong>BIA (ASM/Height²)</strong></td>
+                                <td>50-64歲</td>
+                                <td>&lt;7.0 kg/m²</td>
+                                <td>&lt;5.7 kg/m²</td>
+                            </tr>
+                            <tr>
+                                <td>≥65歲</td>
+                                <td>&lt;7.0 kg/m²</td>
+                                <td>&lt;5.7 kg/m²</td>
+                            </tr>
+                            <tr style="background: rgba(52, 152, 219, 0.1);">
+                                <td rowspan="2"><strong>ASM/BMI</strong> 🆕</td>
+                                <td>50-64歲</td>
+                                <td>&lt;0.789</td>
+                                <td>&lt;0.512</td>
+                            </tr>
+                            <tr style="background: rgba(52, 152, 219, 0.1);">
+                                <td>≥65歲</td>
+                                <td>&lt;0.789</td>
+                                <td>&lt;0.512</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 style="color: var(--secondary-color); margin-top: 1.5rem;">AWGS 2019 & EWGSOP2</h4>
                 <div class="table-responsive">
                     <table class="criteria-table">
                         <thead>
@@ -151,12 +220,45 @@
                         </tbody>
                     </table>
                 </div>
-                <p class="note">ASM = Appendicular Skeletal Muscle mass (四肢骨骼肌質量)</p>
+
+                <div style="background: #fff3cd; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                    <p class="note" style="margin: 0;"><strong>AWGS 2025 重要變更：</strong></p>
+                    <ul style="margin: 0.5rem 0 0 1.5rem; font-size: 0.9rem;">
+                        <li>擴展至 50-64 歲中年族群</li>
+                        <li>新增 ASM/BMI 作為肌肉量評估選項</li>
+                        <li>簡化診斷：只需低肌力 + 低肌肉量</li>
+                        <li>身體功能改為結果指標，非診斷標準</li>
+                    </ul>
+                </div>
+
+                <p class="note" style="margin-top: 1rem;">ASM = Appendicular Skeletal Muscle mass (四肢骨骼肌質量)</p>
             </div>
 
             <div class="tab-content" id="physical-performance">
                 <h3>身體功能標準 / Physical Performance Criteria</h3>
+
+                <div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid #27ae60;">
+                    <p style="margin: 0; font-weight: 600; color: #27ae60;">⚠️ AWGS 2025 重要更新</p>
+                    <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem;">
+                        身體功能指標（步行速度、SPPB等）現在被視為<strong>「結果指標」</strong>而非診斷標準。
+                        這意味著在 AWGS 2025 中，只需要「低肌力 + 低肌肉量」即可診斷肌少症，
+                        身體功能用於評估肌少症的嚴重程度和預後。
+                    </p>
+                </div>
+
                 <div class="criteria-comparison">
+                    <div class="criteria-card">
+                        <h4>AWGS 2025 🆕</h4>
+                        <div class="criteria-item">
+                            <label>身體功能評估（作為結果指標）</label>
+                            <p><strong>步行速度:</strong> &lt;1.0 m/s</p>
+                            <p><strong>SPPB:</strong> ≤9 分</p>
+                            <p><strong>5次起坐:</strong> ≥12 秒</p>
+                            <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #7f8c8d;">
+                                * 用於評估肌少症嚴重度，非診斷標準
+                            </p>
+                        </div>
+                    </div>
                     <div class="criteria-card">
                         <h4>AWGS 2019</h4>
                         <div class="criteria-item">
@@ -231,10 +333,11 @@
         <div class="container">
             <p>參考資料 / References:</p>
             <ul class="references">
-                <li>Chen LK, et al. Asian Working Group for Sarcopenia: 2019 Consensus Update on Sarcopenia Diagnosis and Treatment. J Am Med Dir Assoc. 2020.</li>
-                <li>Cruz-Jentoft AJ, et al. Sarcopenia: revised European consensus on definition and diagnosis. Age Ageing. 2019.</li>
+                <li><strong>🆕 Chen LK, et al. A focus shift from sarcopenia to muscle health in the Asian Working Group for Sarcopenia 2025 Consensus Update. Nature Aging. 2025. doi: 10.1038/s43587-025-01004-y</strong></li>
+                <li>Chen LK, et al. Asian Working Group for Sarcopenia: 2019 Consensus Update on Sarcopenia Diagnosis and Treatment. J Am Med Dir Assoc. 2020;21(3):300-307.</li>
+                <li>Cruz-Jentoft AJ, et al. Sarcopenia: revised European consensus on definition and diagnosis. Age Ageing. 2019;48(1):16-31.</li>
             </ul>
-            <p class="copyright">&copy; 2024 Sarcopenia Diagnosis Tool. For educational purposes only.</p>
+            <p class="copyright">&copy; 2025 Sarcopenia Diagnosis Tool. For educational purposes only.</p>
         </div>
     </footer>
 
