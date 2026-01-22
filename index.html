@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>肌少症診斷流程 - Sarcopenia Diagnosis</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>肌少症診斷流程</h1>
+            <p class="subtitle">Sarcopenia Diagnostic Algorithm</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- 診斷標準選擇 -->
+        <section class="guideline-selector">
+            <h2>選擇診斷標準 / Select Guideline</h2>
+            <div class="guideline-buttons">
+                <button class="guideline-btn active" data-guideline="awgs2019">
+                    AWGS 2019
+                    <span class="badge">亞洲</span>
+                </button>
+                <button class="guideline-btn" data-guideline="ewgsop2">
+                    EWGSOP2 (2018)
+                    <span class="badge">歐洲</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- 互動式診斷流程 -->
+        <section class="diagnostic-tool">
+            <h2>互動式診斷工具 / Interactive Diagnostic Tool</h2>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <div id="diagnosticSteps" class="diagnostic-steps">
+                <!-- 步驟將由 JavaScript 動態生成 -->
+            </div>
+
+            <div class="result-container" id="resultContainer" style="display: none;">
+                <h3>診斷結果 / Diagnostic Result</h3>
+                <div class="result-box" id="resultBox"></div>
+                <button class="btn-reset" onclick="resetDiagnosis()">重新開始 / Reset</button>
+            </div>
+        </section>
+
+        <!-- 診斷標準參考表 -->
+        <section class="reference-tables">
+            <h2>診斷標準參考 / Diagnostic Criteria Reference</h2>
+
+            <div class="criteria-tabs">
+                <button class="tab-btn active" data-tab="screening">篩檢工具</button>
+                <button class="tab-btn" data-tab="muscle-strength">肌力標準</button>
+                <button class="tab-btn" data-tab="muscle-mass">肌肉量標準</button>
+                <button class="tab-btn" data-tab="physical-performance">身體功能</button>
+            </div>
+
+            <div class="tab-content active" id="screening">
+                <h3>篩檢工具 / Screening Tools</h3>
+                <div class="table-responsive">
+                    <table class="criteria-table">
+                        <thead>
+                            <tr>
+                                <th>工具</th>
+                                <th>項目</th>
+                                <th>異常切點</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="2"><strong>SARC-F</strong></td>
+                                <td>5項問卷評分</td>
+                                <td>≥4 分</td>
+                            </tr>
+                            <tr>
+                                <td>力量、行走、起身、爬樓梯、跌倒</td>
+                                <td>每項 0-2 分</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2"><strong>SARC-CalF</strong></td>
+                                <td>SARC-F + 小腿圍</td>
+                                <td>≥11 分</td>
+                            </tr>
+                            <tr>
+                                <td>小腿圍 (cm)</td>
+                                <td>男性 &lt;34 cm, 女性 &lt;33 cm</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tab-content" id="muscle-strength">
+                <h3>肌力標準 / Muscle Strength Criteria</h3>
+                <div class="criteria-comparison">
+                    <div class="criteria-card">
+                        <h4>AWGS 2019</h4>
+                        <div class="criteria-item">
+                            <label>握力 (Handgrip Strength)</label>
+                            <p>男性 &lt;28 kg</p>
+                            <p>女性 &lt;18 kg</p>
+                        </div>
+                    </div>
+                    <div class="criteria-card">
+                        <h4>EWGSOP2</h4>
+                        <div class="criteria-item">
+                            <label>握力 (Handgrip Strength)</label>
+                            <p>男性 &lt;27 kg</p>
+                            <p>女性 &lt;16 kg</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="muscle-mass">
+                <h3>肌肉量標準 / Muscle Mass Criteria</h3>
+                <div class="table-responsive">
+                    <table class="criteria-table">
+                        <thead>
+                            <tr>
+                                <th>測量方法</th>
+                                <th>男性切點</th>
+                                <th>女性切點</th>
+                                <th>標準</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>DXA (ASM/Height²)</strong></td>
+                                <td>&lt;7.0 kg/m²</td>
+                                <td>&lt;5.4 kg/m²</td>
+                                <td>AWGS 2019</td>
+                            </tr>
+                            <tr>
+                                <td><strong>BIA (ASM/Height²)</strong></td>
+                                <td>&lt;7.0 kg/m²</td>
+                                <td>&lt;5.7 kg/m²</td>
+                                <td>AWGS 2019</td>
+                            </tr>
+                            <tr>
+                                <td><strong>DXA (ASM/Height²)</strong></td>
+                                <td>&lt;7.0 kg/m²</td>
+                                <td>&lt;5.5 kg/m²</td>
+                                <td>EWGSOP2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="note">ASM = Appendicular Skeletal Muscle mass (四肢骨骼肌質量)</p>
+            </div>
+
+            <div class="tab-content" id="physical-performance">
+                <h3>身體功能標準 / Physical Performance Criteria</h3>
+                <div class="criteria-comparison">
+                    <div class="criteria-card">
+                        <h4>AWGS 2019</h4>
+                        <div class="criteria-item">
+                            <label>步行速度 (Gait Speed)</label>
+                            <p>&lt;1.0 m/s (6公尺)</p>
+                        </div>
+                        <div class="criteria-item">
+                            <label>SPPB 評分</label>
+                            <p>≤9 分</p>
+                        </div>
+                        <div class="criteria-item">
+                            <label>5次起坐測試</label>
+                            <p>≥12 秒</p>
+                        </div>
+                    </div>
+                    <div class="criteria-card">
+                        <h4>EWGSOP2</h4>
+                        <div class="criteria-item">
+                            <label>步行速度 (Gait Speed)</label>
+                            <p>≤0.8 m/s</p>
+                        </div>
+                        <div class="criteria-item">
+                            <label>SPPB 評分</label>
+                            <p>≤8 分</p>
+                        </div>
+                        <div class="criteria-item">
+                            <label>TUG 測試</label>
+                            <p>≥20 秒</p>
+                        </div>
+                        <div class="criteria-item">
+                            <label>400公尺步行</label>
+                            <p>無法完成或 ≥6 分鐘</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 診斷流程圖 -->
+        <section class="flowchart-section">
+            <h2>診斷流程圖 / Diagnostic Algorithm</h2>
+            <div class="flowchart-container" id="flowchartContainer">
+                <!-- 流程圖將由 JavaScript 動態生成 -->
+            </div>
+        </section>
+
+        <!-- 資訊面板 -->
+        <section class="info-panel">
+            <h2>關於肌少症 / About Sarcopenia</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🔍 定義</h3>
+                    <p>肌少症是一種與年齡相關的進行性全身性骨骼肌疾病，特徵為肌肉質量減少、肌力下降，並伴隨身體功能降低。</p>
+                </div>
+                <div class="info-card">
+                    <h3>📊 盛行率</h3>
+                    <p>亞洲社區老年人盛行率約 5.5-25.7%，住院及長照機構患者更高達 14-33.1%。</p>
+                </div>
+                <div class="info-card">
+                    <h3>⚠️ 影響</h3>
+                    <p>增加跌倒風險、失能、住院率、死亡率，並降低生活品質。</p>
+                </div>
+                <div class="info-card">
+                    <h3>💪 預防與治療</h3>
+                    <p>運動訓練（特別是阻力訓練）、充足蛋白質攝取（1.0-1.2 g/kg/day）、維生素D補充。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>參考資料 / References:</p>
+            <ul class="references">
+                <li>Chen LK, et al. Asian Working Group for Sarcopenia: 2019 Consensus Update on Sarcopenia Diagnosis and Treatment. J Am Med Dir Assoc. 2020.</li>
+                <li>Cruz-Jentoft AJ, et al. Sarcopenia: revised European consensus on definition and diagnosis. Age Ageing. 2019.</li>
+            </ul>
+            <p class="copyright">&copy; 2024 Sarcopenia Diagnosis Tool. For educational purposes only.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
